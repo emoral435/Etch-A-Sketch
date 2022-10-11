@@ -1,13 +1,35 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/dist/output.css" rel="stylesheet">
+  <link rel="icon" href="../photos/favicon.png">
+  <title>Etch-A-Sketch for Adults</title>
 </head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+
+<body class="flex flex-col bg-stone-100">
+    <header class="flex justify-center">Etch-A-Sketch</header>  <!-- header, explaining the site is essentially just a etch-a-sketch website-->
+    <main class="flex justify-evenly">
+        <div class="flex flex-col justify-center align-center">   <!-- whats inside this div essentially is just the color selector, as well as the erase and clear functions -->
+          <input id="color" type="color" value="#333333" class="ml-10 mr-10 w-28 h-20 border-2 border-black"/>
+          <button>color</button>
+          <button>raindbow mode</button>
+          <button>eraser</button>
+          <button>clear</button>
+        </div>
+        <div> <!-- what will be inside here is the actual divs that make up the etch-a-sketch. it will be a block of divs whose size depends on the users input, standard being 16x16-->
+            the grid will go right here
+        </div>
+    </main>
+    <footer class="flex justify-center"> <!-- this footer will contain the links to my github, and saying it was made by me lol -->
+        <div class="pt-3">Made by emoral435</div>
+        <a href="https://github.com/emoral435" target="_blank">
+          <img src="../photos/github-logo.png" alt="github-logo" class="w-8 h-8 ml-8 transition ease-in-out delay-150 hover:scale-150 hover:ml-6">
+        </a>
+    </footer>
+    <script src="./app.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.1.8"
+  },
+  "dependencies": {
+    "@simonwep/pickr": "^1.8.2"
   }
 }
