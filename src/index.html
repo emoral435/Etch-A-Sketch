@@ -10,14 +10,16 @@
 </head>
 
 <body class="flex flex-col bg-stone-100">
-    <header class="flex justify-center">Etch-A-Sketch</header>  <!-- header, explaining the site is essentially just a etch-a-sketch website-->
+    <header class="flex justify-center text-7xl font-extrabold text-stone-700 pt-8 pb-8">Etch-A-Sketch</header>  <!-- header, explaining the site is essentially just a etch-a-sketch website-->
     <main class="flex justify-evenly">
-        <div class="flex flex-col justify-center align-center">   <!-- whats inside this div essentially is just the color selector, as well as the erase and clear functions -->
-          <input id="color" type="color" value="#333333" class="ml-10 mr-10 w-28 h-20 border-2 border-black"/>
-          <button>color</button>
-          <button>raindbow mode</button>
-          <button>eraser</button>
-          <button>clear</button>
+        <div class="flex flex-col justify-center align-center text-center">   <!-- whats inside this div essentially is just the color selector, as well as the erase and clear functions -->
+          <input id="color" type="color" value="#333333" class="ml-10 mr-10 w-28 h-20 border-2 border-black mt-8"/>
+          <button class="shadow text-xl font-mono">color</button>
+          <button class="font-mono shadow text-xl">raindbow mode</button>
+          <button class="font-mono shadow text-xl">eraser</button>
+          <button class="font-mono shadow text-xl">clear</button>
+          <div class="font-mono text-xl">16 x 16</div>
+          <input type="range" min="1" max="64" class="appearance-none h-2 bg-sky-200 rounded-full opacity-70 transition-opacity">
         </div>
         <div> <!-- what will be inside here is the actual divs that make up the etch-a-sketch. it will be a block of divs whose size depends on the users input, standard being 16x16-->
             the grid will go right here
@@ -26,7 +28,7 @@
     <footer class="flex justify-center"> <!-- this footer will contain the links to my github, and saying it was made by me lol -->
         <div class="pt-3">Made by emoral435</div>
         <a href="https://github.com/emoral435" target="_blank">
-          <img src="../photos/github-logo.png" alt="github-logo" class="w-8 h-8 ml-8 transition ease-in-out delay-150 hover:scale-150 hover:ml-6">
+          <img src="../photos/github-logo.png" alt="github-logo" class="w-8 h-8 ml-8 transition ease-in-out delay-200 duration-700 hover:scale-150 hover:-rotate-360">
         </a>
     </footer>
     <script src="./app.js"></script>
