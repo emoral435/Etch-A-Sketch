@@ -10,16 +10,16 @@
 </head>
 
 <body class="flex flex-col bg-stone-100">
-    <header class="flex justify-center text-7xl font-extrabold text-stone-700 pt-8 pb-8">Etch-A-Sketch</header>  <!-- header, explaining the site is essentially just a etch-a-sketch website-->
-    <main class="flex justify-evenly">
+    <header class="flex justify-center font-extrabold text-stone-700 mt-8 mb-8 min-w-min whitespace-nowrap text-6xl">Etch-A-Sketch</header>  <!-- header, explaining the site is essentially just a etch-a-sketch website-->
+    <main class="flex justify-evenly mt-8 mb-8">
         <div class="flex flex-col justify-center align-center text-center">   <!-- whats inside this div essentially is just the color selector, as well as the erase and clear functions -->
-          <input id="color" type="color" value="#333333" class="ml-10 mr-10 w-28 h-20 border-2 border-black mt-8"/>
-          <button class="shadow text-xl font-mono">color</button>
-          <button class="font-mono shadow text-xl">raindbow mode</button>
-          <button class="font-mono shadow text-xl">eraser</button>
-          <button class="font-mono shadow text-xl">clear</button>
-          <div class="font-mono text-xl">16 x 16</div>
-          <input type="range" min="1" max="64" class="appearance-none h-2 bg-sky-200 rounded-full opacity-70 transition-opacity">
+          <input id="color" type="color" value="#333333" class="ml-10 mr-10 w-28 h-20 border-2 border-black mt-8 mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300"/>
+          <button class="shadow text-xl font-mono mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300">color</button>
+          <button class="font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300">raindbow mode</button>
+          <button class="font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300">eraser</button>
+          <button class="font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300">clear</button>
+          <div class="font-mono text-xl mb-10 pt-1 pb-1" id="rangeOutput"></div>
+          <input type="range" min="1" max="64" value="32" class="appearance-none h-2 bg-sky-200 rounded-full opacity-70 transition-opacity" id="slider">
         </div>
         <div> <!-- what will be inside here is the actual divs that make up the etch-a-sketch. it will be a block of divs whose size depends on the users input, standard being 16x16-->
             the grid will go right here
