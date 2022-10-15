@@ -6,3 +6,4 @@ gridOutput.innerHTML = `${slider.value} x ${slider.value}`
 slider.oninput = function() {
     gridOutput.innerHTML = `${this.value} x ${this.value}`
 }
+
