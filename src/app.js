@@ -6,26 +6,20 @@ function scorchedEarth() { // makes all buttons white when its not the button se
     }
 }
 
-function makeDiv(rowNum) {
-    let rowClass = "row" + rowNum;
-    let divRow = document.createElement("div");
-    divRow.classList.add(rowClass);
-    return divRow;
-};
-
-function makeSpan() {
-    let spanElement = document.createElement("span");
-    spanElement.classList.add.apply("sketch");
-}
-
-function makeGrid(dimensions) { // makes the overall grid by printing out a row, but during that row, prints out the appropriate amount of spans/divs
-    let currentDiv;
-    for (let i = 1; i <= dimensions, i++;) {
-        currentDiv = makeDiv(i);
-        for (let j = 0; j < dimensions; j++) {
-            currentDiv.append(makeSpan);
+function makeGrid(dimensions) {
+    let e = document.querySelector("#grid");
+    for (let i = 1; i <= dimensions; i++) {
+        let currentRow = document.createElement("div");
+        currentRow.className = "row" + i;
+        for (let j = 1; j <= dimensions; j++) {
+            let cell = document.createElement("span");
+            cell.className = "gridsquare bg-sky-300";
+            cell.innerText = (i * dimensions) + j
+            currentRow.append(cell);
         }
+        e.appendChild(currentRow)
     }
+
 }
 
 function removeAllChildNodes(parent) {
@@ -47,7 +41,8 @@ slider.oninput = function() {
     gridNumberOutput.innerHTML = `${this.value} x ${this.value}`
      // changes the sliders value when the sliders value gets changed
 }
-
+makeGrid(32);
+removeAllChildNodes(grid);
 //stuff with the buttons
 const button = document.querySelectorAll(".button")
 
