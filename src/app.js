@@ -13,8 +13,8 @@ function makeGrid(dimensions) {
         currentRow.className = "row" + i;
         for (let j = 1; j <= dimensions; j++) {
             let cell = document.createElement("span");
-            cell.className = "gridsquare bg-sky-300";
-            cell.innerText = (i * dimensions) + j
+            let cellSize = 600 / dimensions;
+            cell.className = `gridsquare bg-sky-300 min-w-[${cellSize}px] min-h-[${cellSize}px]`;
             currentRow.append(cell);
         }
         e.appendChild(currentRow)
@@ -42,7 +42,7 @@ slider.oninput = function() {
      // changes the sliders value when the sliders value gets changed
 }
 makeGrid(32);
-removeAllChildNodes(grid);
+
 //stuff with the buttons
 const button = document.querySelectorAll(".button")
 
