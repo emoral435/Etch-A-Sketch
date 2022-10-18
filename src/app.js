@@ -32,14 +32,20 @@ let slider = document.querySelector("#slider")
 
 gridNumberOutput.innerHTML = `${slider.value} x ${slider.value}` // outputs the sliders initial value and grid
 makeGrid(32);
-let ahhhh;
 
+let divGridStyle = document.querySelectorAll(".divGrid");
+divGridStyle.forEach( div => {
+    div.addEventListener('mouseover', () => {
+        div.style.backgroundColor = 'black';
+    });
+});
 
-// changes the sliders value when the sliders value gets changed
+// changes the sliders value one every input of the slider
 slider.oninput = function() {
     gridNumberOutput.innerHTML = `${this.value} x ${this.value}`
 }
 
+// changes the grid every time the slider changes 
 slider.onchange = function() {
     removeAllChildNodes(grid);
     makeGrid(this.value);
@@ -53,13 +59,7 @@ slider.onchange = function() {
     });
 }
 
-let divGridStyle = document.querySelectorAll(".divGrid");
 
-divGridStyle.forEach( div => {
-    div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = 'black';
-    });
-});
 
 
 
