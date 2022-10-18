@@ -59,10 +59,6 @@ slider.onchange = function() {
     });
 }
 
-
-
-
-
 //stuff with the buttons
 const button = document.querySelectorAll(".button")
 
@@ -74,7 +70,13 @@ button.forEach( btn => { // changes the button that is clicked so that it is bla
     })
 })
 
-
+// clear button
+const clear = document.querySelector("#clear");
+clear.addEventListener('click', () => {
+    divGridStyle.forEach( div => {
+        div.style.backgroundColor = 'white';
+    });
+});
 
 
     
