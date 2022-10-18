@@ -14,10 +14,10 @@
     <main class="flex justify-center mt-8 mb-8 mx-20">
         <div class="flex flex-col justify-center align-center text-center">   <!-- whats inside this div essentially is just the color selector, as well as the erase and clear functions -->
           <input id="color" type="color" value="#333333" class="ml-10 mr-10 w-28 h-20 border-2 border-black mt-8 mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300"/>
-          <button class="border border-black shadow text-xl font-mono mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 button">color</button>
-          <button class="border border-black font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 button">raindbow mode</button>
-          <button class="border border-black font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 button">eraser</button>
-          <button class="border border-black font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 button" id="clear">clear</button>
+          <button class="border border-black shadow text-xl font-mono mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 rounded-[40px] button">color</button>
+          <button class="border border-black font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 rounded-[40px] button">raindbow mode</button>
+          <button class="border border-black font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 rounded-[40px] button" id="eraser">eraser</button>
+          <button class="border border-black font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 rounded-[40px] button" id="clear" onclick="clear()">clear</button>
           <div class="font-mono text-xl mb-10 pt-1 pb-1" id="rangeOutput"></div>
           <input type="range" min="1" max="64" value="32" class="appearance-none h-2 bg-sky-200 rounded-full opacity-70 transition-opacity" id="slider" >
         </div>
