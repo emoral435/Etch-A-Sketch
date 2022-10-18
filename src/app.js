@@ -1,28 +1,24 @@
 function scorchedEarth() { // makes all buttons white when its not the button selected
     elements = document.querySelectorAll(".button")
     for (let i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor = 'white';
+        elements[i].style.backgroundColor = 'rgb(245 245 244)';
         elements[i].style.color = 'black';
     }
 }
 
-function makeGrid(dimensions) {
+function makeGrid(dimensions) { //this makes the grid depending on what number goes inside of the function, input 16, you get 16x16 grid
+    grid.style.gridTemplateColumns = `repeat(${dimensions}, 1fr)`
+    grid.style.gridTemplateRows = `repeat(${dimensions}, 1fr)`
     let e = document.querySelector("#grid");
-    for (let i = 1; i <= dimensions; i++) {
-        let currentRow = document.createElement("div");
-        currentRow.className = "row" + i;
-        for (let j = 1; j <= dimensions; j++) {
-            let cell = document.createElement("span");
-            let cellSize = 600 / dimensions;
-            cell.className = `gridsquare bg-sky-300 min-w-[${cellSize}px] min-h-[${cellSize}px]`;
-            currentRow.append(cell);
-        }
-        e.appendChild(currentRow)
+    for (let i = 0; i < (dimensions * dimensions); i++) {
+        let currentDiv = document.createElement("div");
+        currentDiv.className = `divGrid pd-0 mg-0 bg-white`;
+        e.appendChild(currentDiv)
     }
 
 }
 
-function removeAllChildNodes(parent) {
+function removeAllChildNodes(parent) {  // This is here, as it might be the method to remove all of the nodes in the div element when clearing the 
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
@@ -30,19 +26,26 @@ function removeAllChildNodes(parent) {
 
 
 // stuff with the slider
+const grid = document.querySelector("#grid");
 let gridNumberOutput = document.querySelector("#rangeOutput");
 let slider = document.querySelector("#slider")
 
-gridNumberOutput.innerHTML = `${slider.value} x ${slider.value}` // outputs the sliders initial value
-
-const grid = document.querySelector("#grid");
-
-slider.oninput = function() {
-    gridNumberOutput.innerHTML = `${this.value} x ${this.value}`
-     // changes the sliders value when the sliders value gets changed
-}
+gridNumberOutput.innerHTML = `${slider.value} x ${slider.value}` // outputs the sliders initial value and grid
 makeGrid(32);
 
+// changes the sliders value when the sliders value gets changed
+slider.oninput = function() {
+    gridNumberOutput.innerHTML = `${this.value} x ${this.value}`
+    removeAllChildNodes(grid);
+    makeGrid(this.value)
+}
+
+let divGridStyle = document.querySelectorAll(".divGrid");
+divGridStyle.forEach(div => {
+    div.addEventListener("click", () => {
+        div.classList.add("bg-black");
+    })
+})
 //stuff with the buttons
 const button = document.querySelectorAll(".button")
 

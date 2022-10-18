@@ -11,7 +11,7 @@
 
 <body class="flex flex-col bg-stone-100">
     <header class="flex justify-center font-extrabold text-stone-700 mt-8 mb-8 min-w-min whitespace-nowrap text-6xl">Etch-A-Sketch</header>  <!-- header, explaining the site is essentially just a etch-a-sketch website-->
-    <main class="flex justify-center mt-8 mb-8 gap-20 mx-20">
+    <main class="flex justify-center mt-8 mb-8 mx-20">
         <div class="flex flex-col justify-center align-center text-center">   <!-- whats inside this div essentially is just the color selector, as well as the erase and clear functions -->
           <input id="color" type="color" value="#333333" class="ml-10 mr-10 w-28 h-20 border-2 border-black mt-8 mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300"/>
           <button class="border border-black shadow text-xl font-mono mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 button">color</button>
@@ -19,11 +19,9 @@
           <button class="border border-black font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 button">eraser</button>
           <button class="border border-black font-mono shadow text-xl mb-10 pt-1 pb-1 hover:scale-125 transition ease-in-out duration-300 focus:ring focus:ring-sky-300 button">clear</button>
           <div class="font-mono text-xl mb-10 pt-1 pb-1" id="rangeOutput"></div>
-          <input type="range" min="1" max="64" value="32" class="appearance-none h-2 bg-sky-200 rounded-full opacity-70 transition-opacity" id="slider">
+          <input type="range" min="1" max="64" value="32" class="appearance-none h-2 bg-sky-200 rounded-full opacity-70 transition-opacity" id="slider" >
         </div>
-        <div class="min-w-[37.5rem] min-h-[37.5rem] shrink-0 bg-black box-border shadow-lg grid" id="grid"> <!-- what will be inside here is the actual divs that make up the etch-a-sketch. it will be a block of divs whose size depends on the users input, standard being 16x16-->
-            
-        </div>
+        <div class="min-w-[37.5rem] min-h-[37.5rem] shrink-0 shadow-lg grid" id="grid"></div> <!-- what will be inside here is the actual divs that make up the etch-a-sketch. it will be a block of divs whose size depends on the users input, standard being 16x16-->
     </main>
     <footer class="flex justify-center" id="grid"> <!-- this footer will contain the links to my github, and saying it was made by me lol -->
         <div class="pt-3">Made by emoral435</div>
