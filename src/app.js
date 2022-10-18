@@ -24,6 +24,24 @@ function removeAllChildNodes(parent) {  // This is here, as it might be the meth
     }
 }
 
+function clear() { // this is the function to clear the grid
+    let divGridStyle = document.querySelectorAll(".divGrid");
+    let clear = document.querySelector("#clear");
+    clear.addEventListener('click', () => {
+    divGridStyle.forEach( div => {
+        div.style.backgroundColor = 'white';
+    });
+});
+};
+
+function divColor() {
+    let divGridStyle = document.querySelectorAll(".divGrid");
+    divGridStyle.forEach( div => {
+    div.addEventListener('mouseover', () => {
+        div.style.backgroundColor = 'black';
+        });
+    });
+};
 
 // stuff with the slider
 const grid = document.querySelector("#grid");
@@ -32,14 +50,9 @@ let slider = document.querySelector("#slider")
 
 gridNumberOutput.innerHTML = `${slider.value} x ${slider.value}` // outputs the sliders initial value and grid
 makeGrid(32);
-
 let divGridStyle = document.querySelectorAll(".divGrid");
-divGridStyle.forEach( div => {
-    div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = 'black';
-    });
-});
-
+divColor();
+clear();
 // changes the sliders value one every input of the slider
 slider.oninput = function() {
     gridNumberOutput.innerHTML = `${this.value} x ${this.value}`
@@ -49,14 +62,8 @@ slider.oninput = function() {
 slider.onchange = function() {
     removeAllChildNodes(grid);
     makeGrid(this.value);
-
-    let divGridStyle = document.querySelectorAll(".divGrid");
-
-    divGridStyle.forEach( div => {
-    div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = 'black';
-        });
-    });
+    divColor();
+    clear();
 }
 
 //stuff with the buttons
@@ -67,17 +74,5 @@ button.forEach( btn => { // changes the button that is clicked so that it is bla
         scorchedEarth();
         btn.style.backgroundColor = 'black';
         btn.style.color = 'white';
-    })
-})
-
-// clear button
-const clear = document.querySelector("#clear");
-clear.addEventListener('click', () => {
-    divGridStyle.forEach( div => {
-        div.style.backgroundColor = 'white';
     });
 });
-
-
-    
-
