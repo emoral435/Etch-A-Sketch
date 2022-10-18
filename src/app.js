@@ -12,7 +12,7 @@ function makeGrid(dimensions) { //this makes the grid depending on what number g
     let e = document.querySelector("#grid");
     for (let i = 0; i < (dimensions * dimensions); i++) {
         let currentDiv = document.createElement("div");
-        currentDiv.className = `divGrid pd-0 mg-0 bg-white`;
+        currentDiv.className = `pd-0 mg-0 bg-white divGrid`;
         e.appendChild(currentDiv)
     }
 
@@ -32,20 +32,37 @@ let slider = document.querySelector("#slider")
 
 gridNumberOutput.innerHTML = `${slider.value} x ${slider.value}` // outputs the sliders initial value and grid
 makeGrid(32);
+let ahhhh;
+
 
 // changes the sliders value when the sliders value gets changed
 slider.oninput = function() {
     gridNumberOutput.innerHTML = `${this.value} x ${this.value}`
+}
+
+slider.onchange = function() {
     removeAllChildNodes(grid);
-    makeGrid(this.value)
+    makeGrid(this.value);
+
+    let divGridStyle = document.querySelectorAll(".divGrid");
+
+    divGridStyle.forEach( div => {
+    div.addEventListener('mouseover', () => {
+        div.style.backgroundColor = 'black';
+        });
+    });
 }
 
 let divGridStyle = document.querySelectorAll(".divGrid");
-divGridStyle.forEach(div => {
-    div.addEventListener("click", () => {
-        div.classList.add("bg-black");
-    })
-})
+
+divGridStyle.forEach( div => {
+    div.addEventListener('mouseover', () => {
+        div.style.backgroundColor = 'black';
+    });
+});
+
+
+
 //stuff with the buttons
 const button = document.querySelectorAll(".button")
 
