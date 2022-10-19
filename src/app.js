@@ -6,7 +6,7 @@ function scorchedEarth() { // makes all buttons white when its not the button se
     }
 }
 
-function makeGrid(dimensions) { //this makes the grid depending on what number goes inside of the function, input 16, you get 16x16 grid
+function makeGrid(dimensions, color = 'rgb(51 51 51)') { //this makes the grid depending on what number goes inside of the function, input 16, you get 16x16 grid
     grid.style.gridTemplateColumns = `repeat(${dimensions}, 1fr)`
     grid.style.gridTemplateRows = `repeat(${dimensions}, 1fr)`
     let e = document.querySelector("#grid");
@@ -14,7 +14,10 @@ function makeGrid(dimensions) { //this makes the grid depending on what number g
         let currentDiv = document.createElement("div");
         currentDiv.className = `pd-0 mg-0 bg-white divGrid`;
         e.appendChild(currentDiv)
-    }
+    };
+    divColor(color);
+    clear();
+    eraserMode();
 
 }
 
@@ -23,6 +26,15 @@ function removeAllChildNodes(parent) {  // This is here, as it might be the meth
         parent.removeChild(parent.firstChild);
     }
 }
+
+function divColor(color) { // this function gives to the hover functionality that lets the user draw
+    let divGridStyle = document.querySelectorAll(".divGrid");
+    divGridStyle.forEach( div => {
+    div.addEventListener('mouseover', () => {
+        div.style.backgroundColor = color;
+        });
+    });
+};
 
 function clear() { // this is the function to clear the grid
     let divGridStyle = document.querySelectorAll(".divGrid");
@@ -34,40 +46,45 @@ function clear() { // this is the function to clear the grid
 });
 };
 
-function divColor(color) { // this function gives to the hover functionality that lets the user draw
-    let divGridStyle = document.querySelectorAll(".divGrid");
-    divGridStyle.forEach( div => {
-    div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = color;
-        });
-    });
-};
+// function colorButton(colorIdValue) {
+//     let colorButtonSelector = document.querySelector("#colorButton");
+//     colorButtonSelector.addEventListener('click', () => {
+//         divColor(colorIdValue);
+//         console.log('hello')
+//     });
+// }
 
-// stuff with the slider
+function eraserMode() {
+    let divGridStyle = document.querySelectorAll(".divGrid");
+    let eraser = document.querySelector("#eraser");
+    eraser.addEventListener('click', () => {
+        divGridStyle.forEach( div => {
+            div.addEventListener('mouseover', () => {
+                div.style.backgroundColor = 'white';
+            })
+        })
+    })
+}
+
+// Sets up important variables used later
 const grid = document.querySelector("#grid");
 let gridNumberOutput = document.querySelector("#rangeOutput");
 let slider = document.querySelector("#slider")
-let divGridStyle = document.querySelectorAll(".divGrid");
 let colorId = document.querySelector("#color");
-let color;
 
-gridNumberOutput.innerHTML = `${slider.value} x ${slider.value}` // outputs the sliders initial value and grid
+// outputs the sliders initial value and grid, as well as the intial color and sets up the clear button functionality
+gridNumberOutput.innerHTML = `${slider.value} x ${slider.value}` 
 makeGrid(32);
-
-divColor(colorId.value);
-clear();
 
 // changes the sliders value every input of the slider
 slider.oninput = function() {
     gridNumberOutput.innerHTML = `${this.value} x ${this.value}`
 }
 
-// changes the grid every time the slider changes 
+// changes the grid every time the slider or user color changes 
 slider.onchange = function() {
     removeAllChildNodes(grid);
-    makeGrid(this.value);
-    divColor(colorId.value);
-    clear();
+    makeGrid(this.value, colorId.value);
 }
 
 colorId.onchange = function() {
@@ -83,4 +100,4 @@ button.forEach( btn => { // changes the button that is clicked so that it is bla
         btn.style.backgroundColor = 'rgb(51 51 51)';
         btn.style.color = 'white';
     });
-});
+})
