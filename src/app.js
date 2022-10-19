@@ -34,39 +34,30 @@ function clear() { // this is the function to clear the grid
 });
 };
 
-function divColor() { // this function gives to the hover functionality that lets the user draw
+function divColor(color) { // this function gives to the hover functionality that lets the user draw
     let divGridStyle = document.querySelectorAll(".divGrid");
     divGridStyle.forEach( div => {
     div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = 'black';
+        div.style.backgroundColor = color;
         });
     });
 };
-
-// function eraser() {
-//     let divGridStyle = document.querySelectorAll(".divGrid");
-//     let eraser = document.querySelector("#eraser");
-//     eraser.addEventListener("click", () => {
-//         divGridStyle.forEach( div => {
-//             div.addEventListener('mouseover', () => {
-//                 div.style.backgroundColor = 'white';
-//             });
-//         });
-//     });
-// };
 
 // stuff with the slider
 const grid = document.querySelector("#grid");
 let gridNumberOutput = document.querySelector("#rangeOutput");
 let slider = document.querySelector("#slider")
+let divGridStyle = document.querySelectorAll(".divGrid");
+let colorId = document.querySelector("#color");
+let color;
 
 gridNumberOutput.innerHTML = `${slider.value} x ${slider.value}` // outputs the sliders initial value and grid
 makeGrid(32);
 
-let divGridStyle = document.querySelectorAll(".divGrid");
-divColor();
+divColor(colorId.value);
 clear();
-// changes the sliders value one every input of the slider
+
+// changes the sliders value every input of the slider
 slider.oninput = function() {
     gridNumberOutput.innerHTML = `${this.value} x ${this.value}`
 }
@@ -75,8 +66,12 @@ slider.oninput = function() {
 slider.onchange = function() {
     removeAllChildNodes(grid);
     makeGrid(this.value);
-    divColor();
+    divColor(colorId.value);
     clear();
+}
+
+colorId.onchange = function() {
+    divColor(this.value);
 }
 
 //stuff with the buttons
