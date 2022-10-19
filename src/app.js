@@ -18,7 +18,7 @@ function makeGrid(dimensions, color = 'rgb(51 51 51)') { //this makes the grid d
     divColor(color);
     clear();
     eraserMode();
-
+    colorMode(color);
 }
 
 function removeAllChildNodes(parent) {  // This is here, as it might be the method to remove all of the nodes in the div element when clearing the 
@@ -46,14 +46,6 @@ function clear() { // this is the function to clear the grid
 });
 };
 
-// function colorButton(colorIdValue) {
-//     let colorButtonSelector = document.querySelector("#colorButton");
-//     colorButtonSelector.addEventListener('click', () => {
-//         divColor(colorIdValue);
-//         console.log('hello')
-//     });
-// }
-
 function eraserMode() {
     let divGridStyle = document.querySelectorAll(".divGrid");
     let eraser = document.querySelector("#eraser");
@@ -64,6 +56,18 @@ function eraserMode() {
             })
         })
     })
+}
+
+function colorMode(color) {
+    let divGridStyle = document.querySelectorAll(".divGrid");
+    let colorButton = document.querySelector("#colorButton");
+    colorButton.addEventListener('click', () => {
+        divGridStyle.forEach( div => {
+            div.addEventListener('mouseover', () => {
+                div.style.backgroundColor = color;
+            })
+        })
+    });
 }
 
 // Sets up important variables used later
@@ -89,6 +93,7 @@ slider.onchange = function() {
 
 colorId.onchange = function() {
     divColor(this.value);
+    colorMode(this.value);
 }
 
 //stuff with the buttons
