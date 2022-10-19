@@ -19,6 +19,7 @@ function makeGrid(dimensions, color = 'rgb(51 51 51)') { //this makes the grid d
     clear();
     eraserMode();
     colorMode(color);
+    rainbowMode();
 }
 
 function removeAllChildNodes(parent) {  // This is here, as it might be the method to remove all of the nodes in the div element when clearing the 
@@ -46,7 +47,7 @@ function clear() { // this is the function to clear the grid
 });
 };
 
-function eraserMode() {
+function eraserMode() { // adds the eraser button funtionality
     let divGridStyle = document.querySelectorAll(".divGrid");
     let eraser = document.querySelector("#eraser");
     eraser.addEventListener('click', () => {
@@ -58,7 +59,7 @@ function eraserMode() {
     })
 }
 
-function colorMode(color) {
+function colorMode(color) { // adds the color button functionality
     let divGridStyle = document.querySelectorAll(".divGrid");
     let colorButton = document.querySelector("#colorButton");
     colorButton.addEventListener('click', () => {
@@ -70,6 +71,27 @@ function colorMode(color) {
     });
 }
 
+function rainbowMode() {
+    let divGridStyle = document.querySelectorAll(".divGrid");
+    let rainbowButton = document.querySelector("#rainbow");
+    rainbowButton.addEventListener('click', () => {
+        divGridStyle.forEach( div => {
+            div.addEventListener('mouseover', () => {
+                div.style.backgroundColor = getRandomColor();
+            })
+        })
+    })
+}
+
+function getRandomColor() {
+    let letters = '0123456789ABCDEF'.split("");
+    let hashtag = '#'
+    for (let i = 0; i < 6; i++ ) {
+        hashtag += letters[Math.round(Math.random() * 15)];
+    }
+    return hashtag;
+}
+
 // Sets up important variables used later
 const grid = document.querySelector("#grid");
 let gridNumberOutput = document.querySelector("#rangeOutput");
@@ -79,6 +101,7 @@ let colorId = document.querySelector("#color");
 // outputs the sliders initial value and grid, as well as the intial color and sets up the clear button functionality
 gridNumberOutput.innerHTML = `${slider.value} x ${slider.value}` 
 makeGrid(32);
+console.log(getRandomColor());
 
 // changes the sliders value every input of the slider
 slider.oninput = function() {
