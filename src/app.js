@@ -128,4 +128,4 @@ button.forEach( btn => { // changes the button that is clicked so that it is bla
         btn.style.backgroundColor = 'rgb(51 51 51)';
         btn.style.color = 'white';
     });
-});
+})
