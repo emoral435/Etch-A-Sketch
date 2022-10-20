@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}",
-            './index.html',          
-],
+  content: ["./src/**/*.{html,js}"],
   theme: {
     screens: {
       'xs': '480px',
@@ -21,7 +19,7 @@ module.exports = {
     extend: {
       rotate: {
         '360': '360deg',
-      },
+      }
     },
   },
   plugins: [],
